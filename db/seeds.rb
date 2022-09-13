@@ -1,8 +1,8 @@
 # Create a main sample user.
 User.create!(name: 'Alton Vieira',
-             email: 'bicagold@gmail.com',
-             password: 'foobar',
-             password_confirmation: 'foobar',
+             email: 'beatrizmodasvieiraesouza@gmail.com',
+             password: 'tomtomptc',
+             password_confirmation: 'tomtomptc',
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
