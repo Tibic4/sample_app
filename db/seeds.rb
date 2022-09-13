@@ -1,16 +1,18 @@
+require 'faker'
+
 # Create a main sample user.
-User.create!(name: 'Alton Vieira',
-             email: 'beatrizmodasvieiraesouza@gmail.com',
-             password: 'tomtomptc',
-             password_confirmation: 'tomtomptc',
+User.create!(name: 'Example User',
+             email: 'bicagold@gmail.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
 # Generate a bunch of additional users.
-99.times do |n|
+99.times do |_n|
   name  = Faker::Name.name
-  email = "example-#{n + 1}@gmail.cp,"
+  email = Faker::Internet.email
   password = 'password'
   User.create!(name:,
                email:,
