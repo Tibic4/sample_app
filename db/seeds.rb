@@ -1,6 +1,6 @@
 # Create a main sample user.
-User.create!(name: 'Example User',
-             email: 'example@railstutorial.org',
+User.create!(name: 'Alton Vieira',
+             email: 'bicagold@gmail.com',
              password: 'foobar',
              password_confirmation: 'foobar',
              admin: true,
@@ -10,7 +10,7 @@ User.create!(name: 'Example User',
 # Generate a bunch of additional users.
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n + 1}@railstutorial.org"
+  email = "example-#{n + 1}@gmail.cp,"
   password = 'password'
   User.create!(name:,
                email:,
