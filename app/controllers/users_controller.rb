@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[index edit update destroy
                                           following followers]
   before_action :correct_user,   only: %i[edit update]
+  before_action :admin_user,     only: :destroy
 
   def index
     @users = User.paginate(page: params[:page])
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new
@@ -47,6 +48,19 @@ class UsersController < ApplicationController
     redirect_to users_url, status: :see_other
   end
 
+  def following
+    @title = 'Following'
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow', status: :unprocessable_entity
+  end
+
+  def followers
+    @title = 'Followers'
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow', status: :unprocessable_entity
+  end
 
   private
 
